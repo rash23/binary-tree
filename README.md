@@ -6,7 +6,7 @@ If you want to see the code, you can clone the repository:
 
 ### `git clone https://github.com/rash23/binary-tree.git`
 
-If you want to see the result, here is link:
+If you want to see the result, here is the link:
 
 ### `https://binary-tree-delta.vercel.app`
 
