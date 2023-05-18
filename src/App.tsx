@@ -6,7 +6,8 @@ import useMovingCategories from './hooks/useMovingCategories'
 import './App.css'
 
 const App = () => {
-	const { services, changeText, addText, editText, handleAddSubCategory, removeSubCategoryById } = useCategory()
+	const { services, changeText, addText, editText, handleAddSubCategory, removeSubCategoryById, handleOpenModal } =
+		useCategory()
 	const { zoomLevel, handleZoomChange, increaseZoom, reduceZoom } = useZoom()
 	const { position, handleMouseDown, handleMouseMove, handleMouseUp, handleResetPosition } = useMovingCategories()
 
@@ -48,6 +49,7 @@ const App = () => {
 							editText={editText}
 							addCategory={handleAddSubCategory}
 							removeCategory={removeSubCategoryById}
+							openModal={handleOpenModal}
 						/>
 					</div>
 				</div>

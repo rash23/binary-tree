@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ServicesType } from '../types'
+import { ServicesType, ServicesEnum } from '../types'
 
 const useCategory = () => {
 	const [services, setServices] = useState<ServicesType[]>([
@@ -12,7 +12,29 @@ const useCategory = () => {
 		},
 	])
 
+	const openModalById = (id: string, array: ServicesType[], isOpen: boolean) => {
+		const updatedCategories = [...array]
+
+		for (let i = 0; i < updatedCategories.length; i++) {
+			if (updatedCategories[i].id === id) {
+				updatedCategories[i].isOpenModal = isOpen
+				break
+			}
+
+			if (updatedCategories[i].subCategories.length > 0) {
+				openModalById(id, updatedCategories[i].subCategories, isOpen)
+			}
+		}
+
+		setServices(updatedCategories)
+	}
+
+	const handleOpenModal = (id: string): void => {
+		openModalById(id, services, true)
+	}
+
 	const addSubCategoryById = (id: string, newObject: ServicesType, array: ServicesType[]) => {
+		openModalById(id, services, false)
 		const updatedCategories = [...array]
 
 		for (let i = 0; i < updatedCategories.length; i++) {
@@ -29,11 +51,13 @@ const useCategory = () => {
 		setServices(updatedCategories)
 	}
 
-	const handleAddSubCategory = (id: string): void => {
-		const newSubCategory = {
+	const handleAddSubCategory = (id: string, type: ServicesEnum): void => {
+		const newSubCategory: ServicesType = {
 			id: crypto.randomUUID(),
 			isEdited: false,
+			isOpenModal: false,
 			categoryName: '',
+			category: type,
 			subCategories: [],
 		}
 
@@ -127,7 +151,7 @@ const useCategory = () => {
 		editTextLogic(id, services)
 	}
 
-	return { services, changeText, addText, editText, handleAddSubCategory, removeSubCategoryById }
+	return { services, changeText, addText, editText, handleAddSubCategory, removeSubCategoryById, handleOpenModal }
 }
 
 export default useCategory

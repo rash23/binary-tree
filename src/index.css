@@ -113,10 +113,51 @@ code {
 	width: 300px;
 	height: 100px;
 	background-color: #fff;
+	position: relative;
 }
 
 .logo {
 	font-size: 30px;
 	font-weight: bold;
 	text-shadow: #fc0 1px 0 10px;
+}
+
+.modal {
+	position: absolute;
+	bottom: -210px;
+	left: 0px;
+	width: 300px;
+	height: 200px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid rgb(247, 239, 123);
+	box-shadow: rgb(247, 239, 123) 0px 5px 15px;
+}
+
+.modal_title {
+	font-size: 20px;
+	text-shadow: #fc0 4px 0 10px;
+	margin-bottom: 20px;
+}
+
+.modal_buttons {
+	display: flex;
+	gap: 4px;
+}
+
+.modal_button {
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: rgb(249, 241, 142);
+	border: 1px solid rgb(232, 218, 22);
+	border-radius: 4px;
+	font-size: 14px;
 }
