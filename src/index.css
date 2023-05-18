@@ -21,12 +21,8 @@ code {
 	box-sizing: border-box;
 }
 
-.container {
-	display: flex;
-	justify-content: center;
-}
-
 .tree {
+	width: 100%;
 	height: auto;
 	text-align: center;
 	cursor: move;

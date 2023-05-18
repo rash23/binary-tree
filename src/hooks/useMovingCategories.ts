@@ -4,7 +4,7 @@ import { Offset } from '../types'
 const useMovingCategories = () => {
 	const [isDragging, setIsDragging] = useState(false)
 	const [offset, setOffset] = useState<Offset>({ x: 0, y: 0 })
-	const [position, setPosition] = useState<Offset>({ x: -150, y: 0 })
+	const [position, setPosition] = useState<Offset>({ x: 0, y: 0 })
 
 	const handleMouseDown = (event: MouseEvent<HTMLDivElement>) => {
 		setIsDragging(true)
@@ -30,7 +30,7 @@ const useMovingCategories = () => {
 	}
 
 	const handleResetPosition = () => {
-		setPosition({ x: -150, y: 0 })
+		setPosition({ x: 0, y: 0 })
 	}
 
 	return {
