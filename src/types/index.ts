@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react'
+
 export type ServicesType = {
 	id: string
 	categoryName: string
@@ -13,4 +15,16 @@ export type RecursiveComponentPropsType = {
 	editText: (id: string) => void
 	addCategory: (id: string) => void
 	removeCategory: (id: string) => void
+}
+
+export type ZoomComponentPropsType = {
+	zoomLevel: number
+	reduceZoom: () => void
+	increaseZoom: () => void
+	handleZoomChange: (event: ChangeEvent<HTMLSelectElement>) => void
+}
+
+export type Offset = {
+	x: number
+	y: number
 }

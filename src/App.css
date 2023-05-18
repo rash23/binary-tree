@@ -9,8 +9,14 @@
 	margin-bottom: 200px;
 }
 
+.header_navigation {
+	display: flex;
+	gap: 16px;
+}
+
 .zoom-container {
 	display: flex;
+	gap: 4px;
 }
 
 .button {
@@ -18,6 +24,21 @@
 	height: 40px;
 	text-align: center;
 	text-transform: uppercase;
+	background-color: rgb(249, 241, 142);
+	border: 1px solid rgb(232, 218, 22);
+	border-radius: 4px;
+}
+
+.select {
+	background-color: rgb(249, 241, 142);
+	border: 1px solid rgb(232, 218, 22);
+}
+
+.input {
+	background-color: rgb(249, 241, 142);
+	border: 1px solid rgb(232, 218, 22);
+	padding: 4px;
+	border-radius: 4px;
 }
 
 .button-icon {
@@ -42,6 +63,7 @@
 .card_name {
 	word-wrap: break-word;
 	width: 140px;
+	text-shadow: #fc0 1px 0 10px;
 }
 
 .btn-wrapper {

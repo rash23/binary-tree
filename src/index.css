@@ -7,6 +7,10 @@ body {
 	background-color: #f8f8fc;
 }
 
+button {
+	cursor: pointer;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -17,16 +21,24 @@ code {
 	box-sizing: border-box;
 }
 
+.container {
+	display: flex;
+	justify-content: center;
+}
+
 .tree {
-	width: 100%;
 	height: auto;
 	text-align: center;
+	cursor: move;
 }
+
 .tree ul {
 	padding-top: 20px;
 	position: relative;
 	transition: 0.5s;
+	white-space: nowrap;
 }
+
 .tree li {
 	display: inline-table;
 	text-align: center;
@@ -35,6 +47,7 @@ code {
 	padding: 10px;
 	transition: 0.5s;
 }
+
 .tree li::before,
 .tree li::after {
 	content: '';
@@ -45,33 +58,40 @@ code {
 	width: 51%;
 	height: 10px;
 }
+
 .tree li::after {
 	right: auto;
 	left: 50%;
 	border-left: 1px solid #ccc;
 }
+
 .tree li:only-child::after,
 .tree li:only-child::before {
 	display: none;
 }
+
 .tree li:only-child {
 	padding-top: 0;
 }
+
 .tree li:first-child::before,
 .tree li:last-child::after {
 	border: 0 none;
 }
+
 .tree li:last-child::before {
 	border-right: 1px solid #ccc;
 	border-radius: 0 5px 0 0;
 	-webkit-border-radius: 0 5px 0 0;
 	-moz-border-radius: 0 5px 0 0;
 }
+
 .tree li:first-child::after {
 	border-radius: 5px 0 0 0;
 	-webkit-border-radius: 5px 0 0 0;
 	-moz-border-radius: 5px 0 0 0;
 }
+
 .tree ul ul::before {
 	content: '';
 	position: absolute;
@@ -81,8 +101,9 @@ code {
 	width: 0;
 	height: 20px;
 }
+
 .card {
-	border: 1px solid black;
+	border: 1px solid rgb(232, 218, 22);
 	padding: 10px;
 	display: inline-grid;
 	border-radius: 5px;
@@ -92,4 +113,10 @@ code {
 	width: 300px;
 	height: 100px;
 	background-color: #fff;
+}
+
+.logo {
+	font-size: 30px;
+	font-weight: bold;
+	text-shadow: #fc0 1px 0 10px;
 }

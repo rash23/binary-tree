@@ -7,7 +7,7 @@ const RecursiveComponent: FC<RecursiveComponentPropsType> = (props) => {
 			{props.data.map((item) => (
 				<li key={item.id}>
 					{item.isEdited ? (
-						<div className="card">
+						<div className="card" style={{ backgroundColor: !item.firsElement ? '#FFAC83' : '#fff' }}>
 							<div className="card_edit">
 								<span className="card_name"> {item.categoryName}</span>
 								<div className="btn-wrapper">
@@ -31,6 +31,7 @@ const RecursiveComponent: FC<RecursiveComponentPropsType> = (props) => {
 						<div className="card">
 							<div className="card_edit">
 								<input
+									className="input"
 									placeholder="Category name"
 									value={item.categoryName}
 									onChange={(event) => props.changeText(item.id, event.target.value)}
