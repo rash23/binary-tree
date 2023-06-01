@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { ServicesType, ServicesEnum } from '../types'
+import { useState } from 'react';
+import { ServicesType, ServicesEnum } from '../types';
 
 const useCategory = () => {
 	const [services, setServices] = useState<ServicesType[]>([
@@ -10,46 +10,46 @@ const useCategory = () => {
 			firsElement: true,
 			subCategories: [],
 		},
-	])
+	]);
 
 	const openModalById = (id: string, array: ServicesType[], isOpen: boolean) => {
-		const updatedCategories = [...array]
+		const updatedCategories = [...array];
 
 		for (let i = 0; i < updatedCategories.length; i++) {
 			if (updatedCategories[i].id === id) {
-				updatedCategories[i].isOpenModal = isOpen
-				break
+				updatedCategories[i].isOpenModal = isOpen;
+				break;
 			}
 
 			if (updatedCategories[i].subCategories.length > 0) {
-				openModalById(id, updatedCategories[i].subCategories, isOpen)
+				openModalById(id, updatedCategories[i].subCategories, isOpen);
 			}
 		}
 
-		setServices(updatedCategories)
-	}
+		setServices(updatedCategories);
+	};
 
 	const handleOpenModal = (id: string): void => {
-		openModalById(id, services, true)
-	}
+		openModalById(id, services, true);
+	};
 
 	const addSubCategoryById = (id: string, newObject: ServicesType, array: ServicesType[]) => {
-		openModalById(id, services, false)
-		const updatedCategories = [...array]
+		openModalById(id, services, false);
+		const updatedCategories = [...array];
 
 		for (let i = 0; i < updatedCategories.length; i++) {
 			if (updatedCategories[i].id === id) {
-				updatedCategories[i].subCategories.push(newObject)
-				break
+				updatedCategories[i].subCategories.push(newObject);
+				break;
 			}
 
 			if (updatedCategories[i].subCategories.length > 0) {
-				addSubCategoryById(id, newObject, updatedCategories[i].subCategories)
+				addSubCategoryById(id, newObject, updatedCategories[i].subCategories);
 			}
 		}
 
-		setServices(updatedCategories)
-	}
+		setServices(updatedCategories);
+	};
 
 	const handleAddSubCategory = (id: string, type: ServicesEnum): void => {
 		const newSubCategory: ServicesType = {
@@ -59,99 +59,99 @@ const useCategory = () => {
 			categoryName: '',
 			category: type,
 			subCategories: [],
-		}
+		};
 
-		addSubCategoryById(id, newSubCategory, services)
-	}
+		addSubCategoryById(id, newSubCategory, services);
+	};
 
 	const handleRemoveSubCategory = (id: string, array: ServicesType[]): ServicesType[] => {
 		return array.filter((item) => {
 			if (item.id === id) {
-				return false
+				return false;
 			}
 			if (item.subCategories && item.subCategories.length > 0) {
-				item.subCategories = handleRemoveSubCategory(id, item.subCategories)
-				return true
+				item.subCategories = handleRemoveSubCategory(id, item.subCategories);
+				return true;
 			}
-			return true
-		})
-	}
+			return true;
+		});
+	};
 
 	const removeSubCategoryById = (id: string): void => {
-		const updatedSubCategories = handleRemoveSubCategory(id, services)
-		setServices(updatedSubCategories)
-	}
+		const updatedSubCategories = handleRemoveSubCategory(id, services);
+		setServices(updatedSubCategories);
+	};
 
 	const changeTextLogic = (id: string, text: string, array: ServicesType[]): void => {
-		const updatedCategories = [...array]
+		const updatedCategories = [...array];
 
 		for (let i = 0; i < updatedCategories.length; i++) {
 			if (updatedCategories[i].id === id) {
-				updatedCategories[i].categoryName = text
-				break
+				updatedCategories[i].categoryName = text;
+				break;
 			}
 
 			if (updatedCategories[i].subCategories.length > 0) {
-				changeTextLogic(id, text, updatedCategories[i].subCategories)
+				changeTextLogic(id, text, updatedCategories[i].subCategories);
 			}
 		}
 
-		setServices(updatedCategories)
-	}
+		setServices(updatedCategories);
+	};
 
 	const changeText = (id: string, text: string): void => {
-		changeTextLogic(id, text, services)
-	}
+		changeTextLogic(id, text, services);
+	};
 
 	const addTextLogic = (id: string, text: string, array: ServicesType[]): void => {
 		if (!text) {
-			alert('Please enter a text')
-			return
+			alert('Please enter a text');
+			return;
 		}
 
-		const updatedCategories = [...array]
+		const updatedCategories = [...array];
 
 		for (let i = 0; i < updatedCategories.length; i++) {
 			if (updatedCategories[i].id === id) {
-				updatedCategories[i].categoryName = text
-				updatedCategories[i].isEdited = true
-				break
+				updatedCategories[i].categoryName = text;
+				updatedCategories[i].isEdited = true;
+				break;
 			}
 
 			if (updatedCategories[i].subCategories.length > 0) {
-				addTextLogic(id, text, updatedCategories[i].subCategories)
+				addTextLogic(id, text, updatedCategories[i].subCategories);
 			}
 		}
 
-		setServices(updatedCategories)
-	}
+		setServices(updatedCategories);
+	};
 
 	const addText = (text: string, id: string): void => {
-		addTextLogic(id, text, services)
-	}
+		addTextLogic(id, text, services);
+	};
 
 	const editTextLogic = (id: string, array: ServicesType[]): void => {
-		const updatedCategories = [...array]
+		const updatedCategories = [...array];
 
 		for (let i = 0; i < updatedCategories.length; i++) {
 			if (updatedCategories[i].id === id) {
-				updatedCategories[i].isEdited = false
-				break
+				updatedCategories[i].isEdited = false;
+				break;
 			}
 
 			if (updatedCategories[i].subCategories.length > 0) {
-				editTextLogic(id, updatedCategories[i].subCategories)
+				editTextLogic(id, updatedCategories[i].subCategories);
 			}
 		}
 
-		setServices(updatedCategories)
-	}
+		setServices(updatedCategories);
+	};
 
 	const editText = (id: string): void => {
-		editTextLogic(id, services)
-	}
+		editTextLogic(id, services);
+	};
 
-	return { services, changeText, addText, editText, handleAddSubCategory, removeSubCategoryById, handleOpenModal }
-}
+	return { services, changeText, addText, editText, handleAddSubCategory, removeSubCategoryById, handleOpenModal };
+};
 
-export default useCategory
+export default useCategory;

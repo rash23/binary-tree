@@ -1,15 +1,15 @@
-import RecursiveComponent from './components/RecursiveComponent'
-import ZoomComponent from './components/ZoomComponent'
-import useCategory from './hooks/useCategory'
-import useZoom from './hooks/useZoom'
-import useMovingCategories from './hooks/useMovingCategories'
-import './App.css'
+import RecursiveComponent from './components/RecursiveComponent';
+import ZoomComponent from './components/ZoomComponent';
+import useCategory from './hooks/useCategory';
+import useZoom from './hooks/useZoom';
+import useMovingCategories from './hooks/useMovingCategories';
+import './App.css';
 
 const App = () => {
 	const { services, changeText, addText, editText, handleAddSubCategory, removeSubCategoryById, handleOpenModal } =
-		useCategory()
-	const { zoomLevel, handleZoomChange, increaseZoom, reduceZoom } = useZoom()
-	const { position, handleMouseDown, handleMouseMove, handleMouseUp, handleResetPosition } = useMovingCategories()
+		useCategory();
+	const { zoomLevel, handleZoomChange, increaseZoom, reduceZoom } = useZoom();
+	const { position, handleMouseDown, handleMouseMove, handleMouseUp, handleResetPosition } = useMovingCategories();
 
 	return (
 		<div className="app">
@@ -55,7 +55,7 @@ const App = () => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default App
+export default App;

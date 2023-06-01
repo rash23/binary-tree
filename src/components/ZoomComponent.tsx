@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { ZoomComponentPropsType } from '../types'
+import { FC } from 'react';
+import { ZoomComponentPropsType } from '../types';
 
 const ZoomComponent: FC<ZoomComponentPropsType> = (props) => {
 	return (
@@ -18,7 +18,7 @@ const ZoomComponent: FC<ZoomComponentPropsType> = (props) => {
 				➕
 			</button>
 		</div>
-	)
-}
+	);
+};
 
-export default ZoomComponent
+export default ZoomComponent;

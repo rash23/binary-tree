@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { RecursiveComponentPropsType, ServicesEnum } from '../types'
+import { FC } from 'react';
+import { RecursiveComponentPropsType, ServicesEnum } from '../types';
 
 const RecursiveComponent: FC<RecursiveComponentPropsType> = (props) => {
 	return (
@@ -81,7 +81,7 @@ const RecursiveComponent: FC<RecursiveComponentPropsType> = (props) => {
 				</li>
 			))}
 		</ul>
-	)
-}
+	);
+};
 
-export default RecursiveComponent
+export default RecursiveComponent;
